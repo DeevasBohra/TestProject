@@ -33,8 +33,9 @@ collection = db['Triangles']
 
 for Triangles in collection.find():
     print(Triangles)
-#FindTriangles = collection.find_one({11 : "Equilateral AcuteAngle Triangle"})
-#print(FindTriangles)
+#Triangles = collection.find_one({11 : "Equilateral AcuteAngle Triangle"})
+#print(Triangles)
+
 #print(insert_document.inserted_id)
 client.close()
 
