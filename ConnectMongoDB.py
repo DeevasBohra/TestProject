@@ -12,29 +12,36 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 
 db = client['DeeshnaTriangleDB']
 collection = db['Triangles']
-#document = {"13" : "Equilateral Rightangle Triangle"}
+#document = {"ResultKey" : "13", "OutcomeResult" : "Equilateral Rightangle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"11": "Equilateral AcuteAngle Triangle"}
+#document = {"ResultKey" : "11", "OutcomeResult" : "Equilateral AcuteAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"12": "Equilateral ObtuseAngle Triangle"}
+#document = {"ResultKey" : "12", "OutcomeResult" : "Equilateral ObtuseAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"21": "Isosceles AcuteAngleAngle Triangle"}
+#document = {"ResultKey" : "21", "OutcomeResult" : "Isosceles AcuteAngleAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"22": "Isosceles ObtuseAngle Triangle"}
+#document = {"ResultKey" : "22", "OutcomeResult" : "Isosceles ObtuseAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"23": "Isosceles RightAngle Triangle"}
+#document = {"ResultKey" : "23", "OutcomeResult" : "Isosceles RightAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"31": "Scalene AcuteAngle Triangle"}
+#document = {"ResultKey" : "31", "OutcomeResult" : "Scalene AcuteAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"32": "Scalene ObtuseAngle Triangle"}
+#document = {"ResultKey" : "32", "OutcomeResult" : "Scalene ObtuseAngle Triangle"}
 #insert_document = collection.insert_one(document)
-#document = {"33": "Scalene Rightangle Triangle"}
+#document = {"ResultKey" : "33", "OutcomeResult" : "Scalene Rightangle Triangle"}
 #insert_document = collection.insert_one(document)
 
-for Triangles in collection.find():
-    print(Triangles)
-#Triangles = collection.find_one({11 : "Equilateral AcuteAngle Triangle"})
-#print(Triangles)
+#for Triangles in collection.find():
+  #  print(Triangles)
+Triangles = collection.find_one({"ResultKey" : "11"})
+#ResultOutcome = collection.find_one({"11" : "Equilateral AcuteAngle Triangle"})
+
+#if Triangles["11"] == "Equilateral AcuteAngle Triangle":
+print(Triangles["OutcomeResult"])
+
+#for Triangles in collection.find({}, {"11": 1 }):
+   # ResultOutcome = Triangles.values()
+ #   print(Triangles)
 
 #print(insert_document.inserted_id)
 client.close()
